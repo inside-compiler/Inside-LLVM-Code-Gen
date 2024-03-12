@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-03-12T06:45:11.240Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="VTsVTQj7OfX2yT2mEPjT" version="23.1.5" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2024-03-12T06:56:49.095Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="0wulOLhM3zPVJN5BkaFA" version="23.1.5" type="github" pages="4">
   <diagram name="第 1 页" id="H1nVQgGb2neU2fgsevfg">
     <mxGraphModel dx="1434" dy="739" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -780,6 +780,42 @@
         </mxCell>
         <mxCell id="4IfIbTeHQjlFTFQlAPdW-32" value="SmallVector结构" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="110" y="260" width="145" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4IfIbTeHQjlFTFQlAPdW-35" value="Key" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="480" width="60" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="4IfIbTeHQjlFTFQlAPdW-36" value="Value" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="480" width="60" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="4IfIbTeHQjlFTFQlAPdW-37" value="..." style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="445" y="480" width="60" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="4IfIbTeHQjlFTFQlAPdW-38" value="..." style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="505" y="480" width="60" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="4IfIbTeHQjlFTFQlAPdW-39" value="Key" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="565" y="480" width="60" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="4IfIbTeHQjlFTFQlAPdW-40" value="Value" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="625" y="480" width="60" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="4IfIbTeHQjlFTFQlAPdW-41" value="NumTombstones" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="520" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4IfIbTeHQjlFTFQlAPdW-42" value="NumEntries" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="500" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4IfIbTeHQjlFTFQlAPdW-46" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4IfIbTeHQjlFTFQlAPdW-43" target="4IfIbTeHQjlFTFQlAPdW-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4IfIbTeHQjlFTFQlAPdW-43" value="MapPair&amp;lt;key，Value&amp;gt; *" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="480" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4IfIbTeHQjlFTFQlAPdW-45" value="NumBuckets" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="540" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4IfIbTeHQjlFTFQlAPdW-47" value="堆" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="450" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
