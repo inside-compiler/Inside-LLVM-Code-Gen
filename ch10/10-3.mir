@@ -1,0 +1,31 @@
+# Machine code for function sum: IsSSA, TracksLiveness
+
+bb.0.entry:
+  successors: %bb.1(0x80000000); %bb.1(100.00%)
+
+  %4:gpr = MOV_ri 0
+
+bb.1.for.cond:
+; predecessors: %bb.0, %bb.2
+  successors: %bb.2(0x7c000000), %bb.4(0x04000000); %bb.2(96.88%), %bb.4(3.12%)
+
+  %0:gpr = PHI %4:gpr, %bb.0, %7:gpr, %bb.2
+  %1:gpr = PHI %4:gpr, %bb.0, %2:gpr, %bb.2
+  %5:gpr = SLL_ri %0:gpr(tied-def 0), 32
+  %6:gpr = SRA_ri %5:gpr(tied-def 0), 32
+  JSGT_ri killed %6:gpr, 9, %bb.4
+  JMP %bb.2
+
+bb.2.for.body:
+; predecessors: %bb.1
+  successors: %bb.1(0x80000000); %bb.1(100.00%)
+
+  %2:gpr = nsw ADD_rr %1:gpr(tied-def 0), %0:gpr
+  %7:gpr = nsw ADD_ri %0:gpr(tied-def 0), 1
+  JMP %bb.1
+
+bb.4.for.end:
+; predecessors: %bb.1
+
+  $r0 = COPY %1:gpr
+  RET implicit $r0

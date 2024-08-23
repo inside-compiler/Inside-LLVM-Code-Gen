@@ -1,0 +1,8 @@
+liveins:  $x10,  $x11
+SU[0]:   $x12 = LUI target-flags @g_val
+SU[1]:   $x12 = LW $x12, target-flags @g_val
+SU[2]:   $x11 = MULW $x11, $x10
+SU[3]:   $x11 = ADDW $x11, $x10
+SU[4]:   $x10 = MULW $x11, $x10
+SU[5]:   $x10 = MULW $x10, $x12
+        PseudoRET $x10

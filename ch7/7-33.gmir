@@ -1,0 +1,11 @@
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = G_OR %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.

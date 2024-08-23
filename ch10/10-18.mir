@@ -1,0 +1,12 @@
+%5:gpr = SLL_ri %0:gpr(tied-def 0), 32
+prepend: %5:gpr = COPY %0:gpr
+rewrite to: %5:gpr = SLL_ri %5:gpr(tied-def 0), 32
+%6:gpr = SRA_ri killed %5:gpr(tied-def 0), 32
+prepend: %6:gpr = COPY %5:gpr
+rewrite to: %6:gpr = SRA_ri %6:gpr(tied-def 0), 32
+%2:gpr = nsw ADD_rr killed %1:gpr(tied-def 0), %0:gpr
+prepend: %2:gpr = COPY %1:gpr
+rewrite to: %2:gpr = nsw ADD_rr %2:gpr(tied-def 0), %0:gpr
+%7:gpr = nsw ADD_ri killed %0:gpr(tied-def 0), 1
+prepend: %7:gpr = COPY %0:gpr
+rewrite to: %7:gpr = nsw ADD_ri %7:gpr(tied-def 0), 1
