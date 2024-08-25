@@ -1,3 +1,5 @@
+extern void bar(char *c, int num);
+
 void foo(int var) {
     char x[4096];
     char *p;

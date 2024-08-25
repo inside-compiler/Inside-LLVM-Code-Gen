@@ -1,3 +1,7 @@
+Frame Objects:
+  fi#0: size=8, align=8, at location [SP]
+  fi#1: size=8, align=8, at location [SP]
+  fi#2: size=8, align=8, at location [SP]
 Function Live Ins: $r1 in %0, $r2 in %1
 
 bb.0.entry:
@@ -13,5 +17,3 @@ bb.0.entry:
   %5:gpr = LDD %stack.2.c, 0 :: (dereferenceable load (s64) from %ir.c)
   $r0 = COPY %5:gpr
   RET implicit $r0
-
-# End machine code for function func.

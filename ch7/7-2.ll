@@ -1,4 +1,4 @@
-define i64 @callee(i64 noundef %a, i64 noundef %b)  {
+define dso_local i64 @callee(i64 noundef %a, i64 noundef %b) {
 entry:
   %a.addr = alloca i64, align 8
   %b.addr = alloca i64, align 8
@@ -12,7 +12,10 @@ entry:
   %2 = load i64, ptr %c, align 8
   ret i64 %2
 }
-define i32 @caller() {
+
+declare void @llvm.dbg.declare(metadata, metadata, metadata) #1
+
+define dso_local i32 @caller() {
 entry:
   %d = alloca i64, align 8
   %e = alloca i64, align 8

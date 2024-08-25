@@ -1,7 +1,7 @@
 int factor(int n) {
-    int ret= 1;
+    int ret = 1;
     while (n > 1) {
-        ret*= n;
+        ret *= n;
         n--;
     }
     return ret;
