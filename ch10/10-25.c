@@ -1,3 +1,5 @@
+extern void swap(int *left, int *right);
+
 void bubbleSort(int arr[], int n)
 {
     int i, j;

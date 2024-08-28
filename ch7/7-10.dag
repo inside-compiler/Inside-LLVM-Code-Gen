@@ -1,0 +1,16 @@
+===== Instruction selection ends:
+Selected selection DAG: %bb.0 '_Z6calleell:entry'
+SelectionDAG has 20 nodes:
+  t0: ch = EntryToken
+    t4: i64,ch = CopyFromReg t0, Register:i64 %1
+      t2: i64,ch = CopyFromReg t0, Register:i64 %0
+    t8: ch = STD<Mem:(store (s64) into %ir.a.addr)> t2, TargetFrameIndex:i64<0>, TargetConstant:i64<0>, t0
+  t10: ch = STD<Mem:(store (s64) into %ir.b.addr)> t4, TargetFrameIndex:i64<1>, TargetConstant:i64<0>, t8
+  t12: i64,ch = LDD<Mem:(dereferenceable load (s64) from %ir.b.addr)> TargetFrameIndex:i64<1>, TargetConstant:i64<0>, t10
+  t11: i64,ch = LDD<Mem:(dereferenceable load (s64) from %ir.a.addr)> TargetFrameIndex:i64<0>, TargetConstant:i64<0>, t10
+    t13: i64 = ADD_rr nsw t11, t12
+    t15: ch = TokenFactor t11:1, t12:1
+  t16: ch = STD<Mem:(store (s64) into %ir.c)> t13, TargetFrameIndex:i64<2>, TargetConstant:i64<0>, t15
+    t17: i64,ch = LDD<Mem:(dereferenceable load (s64) from %ir.c)> TargetFrameIndex:i64<2>, TargetConstant:i64<0>, t16
+  t19: ch,glue = CopyToReg t16, Register:i64 $r0, t17
+  t20: ch = RET Register:i64 $r0, t19, t19:1
