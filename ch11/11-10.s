@@ -1,25 +1,32 @@
-@i = external global i32, align 4
-
-define i32 @foo(i32 %0, i32 %1) nounwind !prof !1 {
-  %3 = icmp eq i32 %0, 0
-  br i1 %3, label %6, label %4, !prof !2
-4:                                                ; preds = %2
-  %5 =  call i32 @L1()
-  br label %9
-6:                                                ; preds = %2
-  %7 = call i32 @R1()
-  %8 = add nsw i32 %1, 1
-  br label %9
-9:                                               ; preds = %6, %4
-  %10 = phi i32 [ %1, %4 ], [ %8, %6 ]
-  %11 = load i32, i32* @i, align 4
-  %12 = add nsw i32 %10, %11
-  store i32 %12, i32* @i, align 4
-  ret i32 %12
-}
-
-declare i32 @L1()
-declare i32 @R1() cold nounwind
-
-!1 = !{!"function_entry_count", i64 7} //注意：要是有MFS或者HCS都必须有Profile数据
-!2 = !{!"branch_weights", i32 0, i32 7}
+	.text
+	.file	"11-9.ll"
+	.section	.text.foo,"ax",@progbits
+	.globl	foo                             # -- Begin function foo
+	.p2align	4, 0x90
+	.type	foo,@function
+foo:                                    # @foo
+# %bb.0:
+	pushq	%rbx
+	movl	%esi, %ebx
+	testl	%edi, %edi
+	je	.LBB0_3
+# %bb.1:
+	callq	L1@PLT
+.LBB0_2:
+	movq	i@GOTPCREL(%rip), %rax
+	addl	(%rax), %ebx
+	movl	%ebx, (%rax)
+	movl	%ebx, %eax
+	popq	%rbx
+	retq
+.LBB0_3:
+	callq	R1@PLT
+	incl	%ebx
+	jmp	.LBB0_2
+.LBB_END0_3:
+.Lfunc_end0:
+	.size	foo, .Lfunc_end0-foo
+                                        # -- End function
+	.cg_profile foo, L1, 7
+	.section	".note.GNU-stack","",@progbits
+	.addrsig
