@@ -1,100 +1,72 @@
-; ModuleID = '10-25.c'
-source_filename = "10-25.c"
-target datalayout = "e-m:e-p:64:64-i64:64-i128:128-n32:64-S128"
+;该用例是用较早的clang版本编译的
+; ModuleID = 'bubble_sort.bc'
+source_filename = "bubble_sort.c"
+target datalayout = "e-m:e-p:64:64-i64:64-n32:64-S128"
 target triple = "bpf"
 
-; Function Attrs: noinline nounwind optnone
-define dso_local void @bubbleSort(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  store i32 0, ptr %5, align 4
+define dso_local void @bubbleSort(i32* %0, i32 %1) {
+  br label %3
+
+3:                                                ; preds = %31, %2
+  %.01 = phi i32 [ 0, %2 ], [ %32, %31 ]
+  %4 = sub nsw i32 %1, 1
+  %5 = icmp slt i32 %.01, %4
+  br i1 %5, label %6, label %33
+
+6:                                                ; preds = %3
   br label %7
 
-7:                                                ; preds = %48, %2
-  %8 = load i32, ptr %5, align 4
-  %9 = load i32, ptr %4, align 4
-  %10 = sub nsw i32 %9, 1
-  %11 = icmp slt i32 %8, %10
-  br i1 %11, label %12, label %51
+7:                                                ; preds = %28, %6
+  %.0 = phi i32 [ 0, %6 ], [ %29, %28 ]
+  %8 = sub nsw i32 %1, %.01
+  %9 = sub nsw i32 %8, 1
+  %10 = icmp slt i32 %.0, %9
+  br i1 %10, label %11, label %30
 
-12:                                               ; preds = %7
-  store i32 0, ptr %6, align 4
-  br label %13
+11:                                               ; preds = %7
+  %12 = sext i32 %.0 to i64
+  %13 = getelementptr inbounds i32, i32* %0, i64 %12
+  %14 = load i32, i32* %13, align 4
+  %15 = add nsw i32 %.0, 1
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds i32, i32* %0, i64 %16
+  %18 = load i32, i32* %17, align 4
+  %19 = icmp sgt i32 %14, %18
+  br i1 %19, label %20, label %27
 
-13:                                               ; preds = %44, %12
-  %14 = load i32, ptr %6, align 4
-  %15 = load i32, ptr %4, align 4
-  %16 = load i32, ptr %5, align 4
-  %17 = sub nsw i32 %15, %16
-  %18 = sub nsw i32 %17, 1
-  %19 = icmp slt i32 %14, %18
-  br i1 %19, label %20, label %47
+20:                                               ; preds = %11
+  %21 = sext i32 %.0 to i64
+  %22 = getelementptr inbounds i32, i32* %0, i64 %21
+  %23 = add nsw i32 %.0, 1
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i32, i32* %0, i64 %24
+  %26 = call i32 bitcast (i32 (...)* @swap to i32 (i32*, i32*)*)(i32* %22, i32* %25)
+  br label %27
 
-20:                                               ; preds = %13
-  %21 = load ptr, ptr %3, align 8
-  %22 = load i32, ptr %6, align 4
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %21, i64 %23
-  %25 = load i32, ptr %24, align 4
-  %26 = load ptr, ptr %3, align 8
-  %27 = load i32, ptr %6, align 4
-  %28 = add nsw i32 %27, 1
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %26, i64 %29
-  %31 = load i32, ptr %30, align 4
-  %32 = icmp sgt i32 %25, %31
-  br i1 %32, label %33, label %43
+27:                                               ; preds = %20, %11
+  br label %28
 
-33:                                               ; preds = %20
-  %34 = load ptr, ptr %3, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %34, i64 %36
-  %38 = load ptr, ptr %3, align 8
-  %39 = load i32, ptr %6, align 4
-  %40 = add nsw i32 %39, 1
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %38, i64 %41
-  call void @swap(ptr noundef %37, ptr noundef %42)
-  br label %43
+28:                                               ; preds = %27
+  %29 = add nsw i32 %.0, 1
+  br label %7
 
-43:                                               ; preds = %33, %20
-  br label %44
+30:                                               ; preds = %7
+  br label %31
 
-44:                                               ; preds = %43
-  %45 = load i32, ptr %6, align 4
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %6, align 4
-  br label %13, !llvm.loop !3
+31:                                               ; preds = %30
+  %32 = add nsw i32 %.01, 1
+  br label %3
 
-47:                                               ; preds = %13
-  br label %48
-
-48:                                               ; preds = %47
-  %49 = load i32, ptr %5, align 4
-  %50 = add nsw i32 %49, 1
-  store i32 %50, ptr %5, align 4
-  br label %7, !llvm.loop !5
-
-51:                                               ; preds = %7
+33:                                               ; preds = %3
   ret void
 }
 
-declare dso_local void @swap(ptr noundef, ptr noundef) #1
+declare dso_local i32 @swap(...) #0
 
-attributes #0 = { noinline nounwind optnone "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" }
+attributes #0 = { "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "no-frame-pointer-elim-non-leaf" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "unsafe-fp-math"="false" "use-soft-float"="false" }
 
-!llvm.module.flags = !{!0, !1}
-!llvm.ident = !{!2}
+!llvm.module.flags = !{!0}
+!llvm.ident = !{!1}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 7, !"frame-pointer", i32 2}
-!2 = !{!"clang version 15.0.6"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
+!1 = !{!"clang version 8.0.0-3~ubuntu18.04.2 (tags/RELEASE_800/final)"}

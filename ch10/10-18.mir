@@ -1,12 +1,41 @@
-%5:gpr = SLL_ri %0:gpr(tied-def 0), 32
-prepend: %5:gpr = COPY %0:gpr
-rewrite to: %5:gpr = SLL_ri %5:gpr(tied-def 0), 32
-%6:gpr = SRA_ri killed %5:gpr(tied-def 0), 32
-prepend: %6:gpr = COPY %5:gpr
-rewrite to: %6:gpr = SRA_ri %6:gpr(tied-def 0), 32
-%2:gpr = nsw ADD_rr killed %1:gpr(tied-def 0), %0:gpr
-prepend: %2:gpr = COPY %1:gpr
-rewrite to: %2:gpr = nsw ADD_rr %2:gpr(tied-def 0), %0:gpr
-%7:gpr = nsw ADD_ri killed %0:gpr(tied-def 0), 1
-prepend: %7:gpr = COPY %0:gpr
-rewrite to: %7:gpr = nsw ADD_ri %7:gpr(tied-def 0), 1
+# Machine code for function sum: NoPHIs, TracksLiveness, TiedOpsRewritten
+
+bb.0.entry:
+  successors: %bb.1(0x80000000); %bb.1(100.00%)
+
+  %4:gpr = MOV_ri 0
+  %8:gpr = COPY %4:gpr
+  %9:gpr = COPY killed %4:gpr
+
+bb.1.for.cond:
+; predecessors: %bb.0, %bb.2
+  successors: %bb.2(0x7c000000), %bb.3(0x04000000); %bb.2(96.88%), %bb.3(3.12%)
+
+  %1:gpr = COPY killed %9:gpr
+  %0:gpr = COPY killed %8:gpr
+  %5:gpr = COPY %0:gpr
+  %5:gpr = SLL_ri %5:gpr(tied-def 0), 32
+  %6:gpr = COPY killed %5:gpr
+  %6:gpr = SRA_ri %6:gpr(tied-def 0), 32
+  JSGT_ri killed %6:gpr, 9, %bb.3
+  JMP %bb.2
+
+bb.2.for.body:
+; predecessors: %bb.1
+  successors: %bb.1(0x80000000); %bb.1(100.00%)
+
+  %2:gpr = COPY killed %1:gpr
+  %2:gpr = nsw ADD_rr %2:gpr(tied-def 0), %0:gpr
+  %7:gpr = COPY killed %0:gpr
+  %7:gpr = nsw ADD_ri %7:gpr(tied-def 0), 1
+  %8:gpr = COPY killed %7:gpr
+  %9:gpr = COPY killed %2:gpr
+  JMP %bb.1
+
+bb.3.for.end:
+; predecessors: %bb.1
+
+  $r0 = COPY killed %1:gpr
+  RET implicit killed $r0
+
+# End machine code for function sum.

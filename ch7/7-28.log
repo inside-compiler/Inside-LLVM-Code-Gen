@@ -1,0 +1,2376 @@
+; 编译命令: clang --target=aarch64  -S -mllvm --global-isel -O2 -mllvm -print-after-all  7-28.c
+*** IR Dump After Annotation2MetadataPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) #0 {
+entry:
+  %a.addr = alloca i32, align 4
+  %b.addr = alloca i32, align 4
+  store i32 %a, ptr %a.addr, align 4, !tbaa !4
+  store i32 %b, ptr %b.addr, align 4, !tbaa !4
+  %0 = load i32, ptr %a.addr, align 4, !tbaa !4
+  %1 = load i32, ptr %b.addr, align 4, !tbaa !4
+  %or = or i32 %0, %1
+  ret i32 %or
+}
+
+attributes #0 = { nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+*** IR Dump After ForceFunctionAttrsPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) #0 {
+entry:
+  %a.addr = alloca i32, align 4
+  %b.addr = alloca i32, align 4
+  store i32 %a, ptr %a.addr, align 4, !tbaa !4
+  store i32 %b, ptr %b.addr, align 4, !tbaa !4
+  %0 = load i32, ptr %a.addr, align 4, !tbaa !4
+  %1 = load i32, ptr %b.addr, align 4, !tbaa !4
+  %or = or i32 %0, %1
+  ret i32 %or
+}
+
+attributes #0 = { nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+*** IR Dump After InferFunctionAttrsPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) #0 {
+entry:
+  %a.addr = alloca i32, align 4
+  %b.addr = alloca i32, align 4
+  store i32 %a, ptr %a.addr, align 4, !tbaa !4
+  store i32 %b, ptr %b.addr, align 4, !tbaa !4
+  %0 = load i32, ptr %a.addr, align 4, !tbaa !4
+  %1 = load i32, ptr %b.addr, align 4, !tbaa !4
+  %or = or i32 %0, %1
+  ret i32 %or
+}
+
+attributes #0 = { nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+*** IR Dump After CoroEarlyPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) #0 {
+entry:
+  %a.addr = alloca i32, align 4
+  %b.addr = alloca i32, align 4
+  store i32 %a, ptr %a.addr, align 4, !tbaa !4
+  store i32 %b, ptr %b.addr, align 4, !tbaa !4
+  %0 = load i32, ptr %a.addr, align 4, !tbaa !4
+  %1 = load i32, ptr %b.addr, align 4, !tbaa !4
+  %or = or i32 %0, %1
+  ret i32 %or
+}
+
+attributes #0 = { nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+*** IR Dump After LowerExpectIntrinsicPass on test ***
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) #0 {
+entry:
+  %a.addr = alloca i32, align 4
+  %b.addr = alloca i32, align 4
+  store i32 %a, ptr %a.addr, align 4, !tbaa !4
+  store i32 %b, ptr %b.addr, align 4, !tbaa !4
+  %0 = load i32, ptr %a.addr, align 4, !tbaa !4
+  %1 = load i32, ptr %b.addr, align 4, !tbaa !4
+  %or = or i32 %0, %1
+  ret i32 %or
+}
+*** IR Dump After SimplifyCFGPass on test ***
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) #0 {
+entry:
+  %a.addr = alloca i32, align 4
+  %b.addr = alloca i32, align 4
+  store i32 %a, ptr %a.addr, align 4, !tbaa !4
+  store i32 %b, ptr %b.addr, align 4, !tbaa !4
+  %0 = load i32, ptr %a.addr, align 4, !tbaa !4
+  %1 = load i32, ptr %b.addr, align 4, !tbaa !4
+  %or = or i32 %0, %1
+  ret i32 %or
+}
+*** IR Dump After SROAPass on test ***
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After EarlyCSEPass on test ***
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After OpenMPOptPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+
+attributes #0 = { nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After IPSCCPPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+
+attributes #0 = { nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After CalledValuePropagationPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+
+attributes #0 = { nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After GlobalOptPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+
+attributes #0 = { nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After PromotePass on test ***
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After DeadArgumentEliminationPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+
+attributes #0 = { nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After InstCombinePass on test ***
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After SimplifyCFGPass on test ***
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After RequireAnalysisPass<llvm::GlobalsAA, llvm::Module> on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+
+attributes #0 = { nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After InvalidateAnalysisPass<llvm::AAManager> on test ***
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After RequireAnalysisPass<llvm::ProfileSummaryAnalysis, llvm::Module> on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+
+attributes #0 = { nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After InlinerPass on (test) ***
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After InlinerPass on (test) ***
+; Function Attrs: nounwind uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After PostOrderFunctionAttrsPass on (test) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After OpenMPOptCGSCCPass on (test) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After SROAPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After EarlyCSEPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After SpeculativeExecutionPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After JumpThreadingPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After CorrelatedValuePropagationPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After SimplifyCFGPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After InstCombinePass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After LibCallsShrinkWrapPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After TailCallElimPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After SimplifyCFGPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %a, %b
+  ret i32 %or
+}
+*** IR Dump After ReassociatePass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After RequireAnalysisPass<llvm::OptimizationRemarkEmitterAnalysis, llvm::Function> on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LoopSimplifyPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LCSSAPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After SimplifyCFGPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After InstCombinePass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LoopSimplifyPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LCSSAPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After SROAPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After MergedLoadStoreMotionPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After GVNPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After SCCPPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After BDCEPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After InstCombinePass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After JumpThreadingPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After CorrelatedValuePropagationPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After ADCEPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After MemCpyOptPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After DSEPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LoopSimplifyPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LCSSAPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After CoroElidePass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After SimplifyCFGPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After InstCombinePass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After CoroSplitPass on (test) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After InvalidateAnalysisPass<llvm::ShouldNotRunFunctionPassesAnalysis> on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After CoroCleanupPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After GlobalOptPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After GlobalDCEPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After EliminateAvailableExternallyPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After ReversePostOrderFunctionAttrsPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After RecomputeGlobalsAAPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After Float2IntPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LowerConstantIntrinsicsPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LoopSimplifyPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LCSSAPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LoopDistributePass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After InjectTLIMappings on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LoopVectorizePass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LoopLoadEliminationPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After InstCombinePass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After SimplifyCFGPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After SLPVectorizerPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After VectorCombinePass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After InstCombinePass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LoopUnrollPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After WarnMissedTransformationsPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After InstCombinePass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After RequireAnalysisPass<llvm::OptimizationRemarkEmitterAnalysis, llvm::Function> on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LoopSimplifyPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LCSSAPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After AlignmentFromAssumptionsPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After LoopSinkPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After InstSimplifyPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After DivRemPairsPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After TailCallElimPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After SimplifyCFGPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After GlobalDCEPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After ConstantMergePass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After CGProfilePass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After RelLookupTableConverterPass on [module] ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After AnnotationRemarksPass on test ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After ObjC ARC contraction (objc-arc-contract) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Pre-ISel Intrinsic Lowering (pre-isel-intrinsic-lowering) ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After Expand Atomic instructions (atomic-expand) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Simplify the CFG (simplifycfg) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Canonicalize natural loops (loop-simplify) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Loop Data Prefetch (loop-data-prefetch) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Falkor HW Prefetch Fix (aarch64-falkor-hwpf-fix) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Module Verifier (verify) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Canonicalize natural loops (loop-simplify) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Merge contiguous icmps into a memcmp (mergeicmps) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Expand memcmp() to load/stores (expandmemcmp) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Lower Garbage Collection Instructions (gc-lowering) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Shadow Stack GC Lowering (shadow-stack-gc-lowering) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Lower constant intrinsics (lower-constant-intrinsics) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Remove unreachable blocks from the CFG (unreachableblockelim) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Constant Hoisting (consthoist) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Replace intrinsics with calls to vector library (replace-with-veclib) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Partially inline calls to library functions (partially-inline-libcalls) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Expand vector predication intrinsics (expandvp) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Scalarize Masked Memory Intrinsics (scalarize-masked-mem-intrin) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Expand reduction intrinsics (expand-reductions) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After TLS Variable Hoist (tlshoist) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After AArch64 Stack Tagging (aarch64-stack-tagging) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Interleaved Load Combine Pass (interleaved-load-combine) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Interleaved Access Pass (interleaved-access) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Type Promotion (type-promotion) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After CodeGen Prepare (codegenprepare) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Exception handling preparation (dwarfehprepare) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After AArch64 Promote Constant (aarch64-promote-const) ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+*** IR Dump After Merge internal globals (global-merge) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Safe Stack instrumentation pass (safe-stack) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+*** IR Dump After Module Verifier (verify) ***
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+# *** IR Dump After IRTranslator (irtranslator) ***:
+# Machine code for function test: IsSSA, TracksLiveness
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:_(s32) = COPY $w0
+  %1:_(s32) = COPY $w1
+  %2:_(s32) = G_OR %1:_, %0:_
+  $w0 = COPY %2:_(s32)
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64PreLegalizerCombiner (aarch64-prelegalizer-combiner) ***:
+# Machine code for function test: IsSSA, TracksLiveness
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:_(s32) = COPY $w0
+  %1:_(s32) = COPY $w1
+  %2:_(s32) = G_OR %1:_, %0:_
+  $w0 = COPY %2:_(s32)
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After LoadStoreOpt (loadstore-opt) ***:
+# Machine code for function test: IsSSA, TracksLiveness
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:_(s32) = COPY $w0
+  %1:_(s32) = COPY $w1
+  %2:_(s32) = G_OR %1:_, %0:_
+  $w0 = COPY %2:_(s32)
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Legalizer (legalizer) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:_(s32) = COPY $w0
+  %1:_(s32) = COPY $w1
+  %2:_(s32) = G_OR %1:_, %0:_
+  $w0 = COPY %2:_(s32)
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64PostLegalizerCombiner (aarch64-postlegalizer-combiner) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:_(s32) = COPY $w0
+  %1:_(s32) = COPY $w1
+  %2:_(s32) = G_OR %1:_, %0:_
+  $w0 = COPY %2:_(s32)
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64PostLegalizerLowering (aarch64-postlegalizer-lowering) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:_(s32) = COPY $w0
+  %1:_(s32) = COPY $w1
+  %2:_(s32) = G_OR %1:_, %0:_
+  $w0 = COPY %2:_(s32)
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After RegBankSelect (regbankselect) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr(s32) = COPY $w0
+  %1:gpr(s32) = COPY $w1
+  %2:gpr(s32) = G_OR %1:gpr, %0:gpr
+  $w0 = COPY %2:gpr(s32)
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Localizer (localizer) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr(s32) = COPY $w0
+  %1:gpr(s32) = COPY $w1
+  %2:gpr(s32) = G_OR %1:gpr, %0:gpr
+  $w0 = COPY %2:gpr(s32)
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After InstructionSelect (instruction-select) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 Post Select Optimizer (aarch64-post-select-optimize) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Finalize ISel and expand pseudo-instructions (finalize-isel) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Early Tail Duplication (early-tailduplication) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Optimize machine instruction PHIs (opt-phis) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Slot index numbering (slotindexes) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+0B	bb.1.entry:
+	  liveins: $w0, $w1
+16B	  %0:gpr32 = COPY $w0
+32B	  %1:gpr32 = COPY $w1
+48B	  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+64B	  $w0 = COPY %2:gpr32
+80B	  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Merge disjoint stack slots (stack-coloring) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Local Stack Slot Allocation (localstackalloc) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Remove dead machine instructions (dead-mi-elimination) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 Condition Optimizer (aarch64-condopt) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 Conditional Compares (aarch64-ccmp) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Machine InstCombiner (machine-combiner) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 Conditional Branch Tuning (aarch64-cond-br-tuning) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Early If-Conversion (early-ifcvt) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 Store Pair Suppression (aarch64-stp-suppress) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 SIMD instructions optimization pass (aarch64-simdinstr-opt) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 Stack Tagging PreRA (aarch64-stack-tagging-pre-ra) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Early Machine Loop Invariant Code Motion (early-machinelicm) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Machine Common Subexpression Elimination (machine-cse) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Machine code sinking (machine-sink) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Peephole Optimizations (peephole-opt) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Remove dead machine instructions (dead-mi-elimination) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 MI Peephole Optimization pass (aarch64-mi-peephole-opt) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 Dead register definitions (aarch64-dead-defs) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Detect Dead Lanes (detect-dead-lanes) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Process Implicit Definitions (processimpdefs) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.1.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Remove unreachable machine basic blocks (unreachable-mbb-elimination) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY $w0
+  %1:gpr32 = COPY $w1
+  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+  $w0 = COPY %2:gpr32
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Live Variable Analysis (livevars) ***:
+# Machine code for function test: IsSSA, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY killed $w0
+  %1:gpr32 = COPY killed $w1
+  %2:gpr32 = ORRWrr killed %1:gpr32, killed %0:gpr32
+  $w0 = COPY killed %2:gpr32
+  RET_ReallyLR implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Eliminate PHI nodes for register allocation (phi-node-elimination) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, Legalized, RegBankSelected, Selected
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY killed $w0
+  %1:gpr32 = COPY killed $w1
+  %2:gpr32 = ORRWrr killed %1:gpr32, killed %0:gpr32
+  $w0 = COPY killed %2:gpr32
+  RET_ReallyLR implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Two-Address instruction pass (twoaddressinstruction) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, Legalized, RegBankSelected, Selected, TiedOpsRewritten
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  %0:gpr32 = COPY killed $w0
+  %1:gpr32 = COPY killed $w1
+  %2:gpr32 = ORRWrr killed %1:gpr32, killed %0:gpr32
+  $w0 = COPY killed %2:gpr32
+  RET_ReallyLR implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Slot index numbering (slotindexes) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, Legalized, RegBankSelected, Selected, TiedOpsRewritten
+Function Live Ins: $w0, $w1
+
+0B	bb.0.entry:
+	  liveins: $w0, $w1
+16B	  %0:gpr32 = COPY killed $w0
+32B	  %1:gpr32 = COPY killed $w1
+48B	  %2:gpr32 = ORRWrr killed %1:gpr32, killed %0:gpr32
+64B	  $w0 = COPY killed %2:gpr32
+80B	  RET_ReallyLR implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Live Interval Analysis (liveintervals) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, Legalized, RegBankSelected, Selected, TiedOpsRewritten
+Function Live Ins: $w0, $w1
+
+0B	bb.0.entry:
+	  liveins: $w0, $w1
+16B	  %0:gpr32 = COPY $w0
+32B	  %1:gpr32 = COPY $w1
+48B	  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+64B	  $w0 = COPY %2:gpr32
+80B	  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Simple Register Coalescing (simple-register-coalescing) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, Legalized, RegBankSelected, Selected, TiedOpsRewritten
+Function Live Ins: $w0, $w1
+
+0B	bb.0.entry:
+	  liveins: $w0, $w1
+16B	  %0:gpr32 = COPY $w0
+32B	  %1:gpr32 = COPY $w1
+48B	  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+64B	  $w0 = COPY %2:gpr32
+80B	  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Rename Disconnected Subregister Components (rename-independent-subregs) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, Legalized, RegBankSelected, Selected, TiedOpsRewritten
+Function Live Ins: $w0, $w1
+
+0B	bb.0.entry:
+	  liveins: $w0, $w1
+16B	  %0:gpr32 = COPY $w0
+32B	  %1:gpr32 = COPY $w1
+48B	  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+64B	  $w0 = COPY %2:gpr32
+80B	  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Machine Instruction Scheduler (machine-scheduler) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, Legalized, RegBankSelected, Selected, TiedOpsRewritten
+Function Live Ins: $w0, $w1
+
+0B	bb.0.entry:
+	  liveins: $w0, $w1
+16B	  %0:gpr32 = COPY $w0
+32B	  %1:gpr32 = COPY $w1
+48B	  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+64B	  $w0 = COPY %2:gpr32
+80B	  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Debug Variable Analysis (livedebugvars) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+0B	bb.0.entry:
+	  liveins: $w0, $w1
+16B	  %0:gpr32 = COPY $w0
+32B	  %1:gpr32 = COPY $w1
+48B	  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+64B	  $w0 = COPY %2:gpr32
+80B	  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Live Stack Slot Analysis (livestacks) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+0B	bb.0.entry:
+	  liveins: $w0, $w1
+16B	  %0:gpr32 = COPY $w0
+32B	  %1:gpr32 = COPY $w1
+48B	  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+64B	  $w0 = COPY %2:gpr32
+80B	  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Virtual Register Map (virtregmap) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+0B	bb.0.entry:
+	  liveins: $w0, $w1
+16B	  %0:gpr32 = COPY $w0
+32B	  %1:gpr32 = COPY $w1
+48B	  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+64B	  $w0 = COPY %2:gpr32
+80B	  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Live Register Matrix (liveregmatrix) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+0B	bb.0.entry:
+	  liveins: $w0, $w1
+16B	  %0:gpr32 = COPY $w0
+32B	  %1:gpr32 = COPY $w1
+48B	  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+64B	  $w0 = COPY %2:gpr32
+80B	  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Greedy Register Allocator (greedy) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+0B	bb.0.entry:
+	  liveins: $w0, $w1
+16B	  %0:gpr32 = COPY $w0
+32B	  %1:gpr32 = COPY $w1
+48B	  %2:gpr32 = ORRWrr %1:gpr32, %0:gpr32
+64B	  $w0 = COPY %2:gpr32
+80B	  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Virtual Register Rewriter (virtregrewriter) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+0B	bb.0.entry:
+	  liveins: $w0, $w1
+48B	  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+80B	  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Register Allocation Pass Scoring (regallocscoringpass) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+0B	bb.0.entry:
+	  liveins: $w0, $w1
+48B	  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+80B	  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Stack Slot Coloring (stack-slot-coloring) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+0B	bb.0.entry:
+	  liveins: $w0, $w1
+48B	  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+80B	  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Machine Copy Propagation Pass (machine-cp) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Machine Loop Invariant Code Motion (machinelicm) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 Redundant Copy Elimination (aarch64-copyelim) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After A57 FP Anti-dependency breaker (aarch64-a57-fp-load-balancing) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Remove Redundant DEBUG_VALUE analysis (removeredundantdebugvalues) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Fixup Statepoint Caller Saved (fixup-statepoint-caller-saved) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After PostRA Machine Sink (postra-machine-sink) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Shrink Wrapping analysis (shrink-wrap) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Prologue/Epilogue Insertion & Frame Finalization (prologepilog) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Control Flow Optimizer (branch-folder) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Tail Duplication (tailduplication) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Machine Copy Propagation Pass (machine-cp) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Post-RA pseudo instruction expansion pass (postrapseudos) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  renamable $w0 = ORRWrr killed renamable $w1, killed renamable $w0
+  RET_ReallyLR implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 pseudo instruction expansion pass (aarch64-expand-pseudo) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 load / store optimization pass (aarch64-ldst-opt) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 speculation hardening pass (aarch64-speculation-hardening) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 sls hardening pass (aarch64-sls-hardening) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Falkor HW Prefetch Fix Late Phase (aarch64-falkor-hwpf-fix-late) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit $w0
+
+# End machine code for function test.
+
+# *** IR Dump After PostRA Machine Instruction Scheduler (postmisched) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Analyze Machine Code For Garbage Collection (gc-analysis) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Branch Probability Basic Block Placement (block-placement) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Insert fentry calls (fentry-insert) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Insert XRay ops (xray-instrumentation) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Implement the 'patchable-function' attribute (patchable-function) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Workaround A53 erratum 835769 pass (aarch64-fix-cortex-a53-835769-pass) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 Branch Targets (aarch64-branch-targets) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Branch relaxation pass (branch-relaxation) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After AArch64 Compress Jump Tables (aarch64-jump-tables) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Contiguously Lay Out Funclets (funclet-layout) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After StackMap Liveness Analysis (stackmap-liveness) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Live DEBUG_VALUE analysis (livedebugvalues) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.
+
+*** IR Dump After Machine Outliner (machine-outliner) ***
+; ModuleID = '7-28.c'
+source_filename = "7-28.c"
+target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
+target triple = "aarch64"
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable
+define dso_local i32 @test(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+entry:
+  %or = or i32 %b, %a
+  ret i32 %or
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind readnone willreturn uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic" "target-features"="+neon,+v8a" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 2}
+!2 = !{i32 7, !"frame-pointer", i32 1}
+!3 = !{!"clang version 15.0.6 (https://github.com/llvm/llvm-project.git 088f33605d8a61ff519c580a71b1dd57d16a03f8)"}
+# *** IR Dump After Insert CFI remember/restore state instructions (cfi-fixup) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.
+
+# *** IR Dump After Unpack machine instruction bundles (unpack-mi-bundles) ***:
+# Machine code for function test: NoPHIs, TracksLiveness, NoVRegs, Legalized, RegBankSelected, Selected, TiedOpsRewritten, TracksDebugUserValues
+Function Live Ins: $w0, $w1
+
+bb.0.entry:
+  liveins: $w0, $w1
+  $w0 = ORRWrs killed renamable $w1, killed renamable $w0, 0
+  RET undef $lr, implicit killed $w0
+
+# End machine code for function test.

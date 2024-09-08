@@ -29,3 +29,5 @@ bb.3.for.end:
 
   $r0 = COPY killed %1:gpr
   RET implicit killed $r0
+
+# End machine code for function sum.

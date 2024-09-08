@@ -29,3 +29,5 @@ bb.4.for.end:
 
   $r0 = COPY %1:gpr
   RET implicit $r0
+
+# End machine code for function sum.
