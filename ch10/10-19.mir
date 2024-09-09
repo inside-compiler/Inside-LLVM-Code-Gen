@@ -1,0 +1,41 @@
+# Machine code for function sum: NoPHIs, TracksLiveness, TiedOpsRewritten
+
+0B	bb.0.entry:
+	  successors: %bb.1(0x80000000); %bb.1(100.00%)
+
+16B	  %4:gpr = MOV_ri 0
+32B	  %8:gpr = COPY %4:gpr
+48B	  %9:gpr = COPY killed %4:gpr
+
+64B	bb.1.for.cond:
+	; predecessors: %bb.0, %bb.2
+	  successors: %bb.2(0x7c000000), %bb.3(0x04000000); %bb.2(96.88%), %bb.3(3.12%)
+
+80B	  %1:gpr = COPY killed %9:gpr
+96B	  %0:gpr = COPY killed %8:gpr
+112B	  %5:gpr = COPY %0:gpr
+128B	  %5:gpr = SLL_ri %5:gpr(tied-def 0), 32
+144B	  %6:gpr = COPY killed %5:gpr
+160B	  %6:gpr = SRA_ri %6:gpr(tied-def 0), 32
+176B	  JSGT_ri killed %6:gpr, 9, %bb.3
+192B	  JMP %bb.2
+
+208B	bb.2.for.body:
+	; predecessors: %bb.1
+	  successors: %bb.1(0x80000000); %bb.1(100.00%)
+
+224B	  %2:gpr = COPY killed %1:gpr
+240B	  %2:gpr = nsw ADD_rr %2:gpr(tied-def 0), %0:gpr
+256B	  %7:gpr = COPY killed %0:gpr
+272B	  %7:gpr = nsw ADD_ri %7:gpr(tied-def 0), 1
+288B	  %8:gpr = COPY killed %7:gpr
+304B	  %9:gpr = COPY killed %2:gpr
+320B	  JMP %bb.1
+
+336B	bb.3.for.end:
+	; predecessors: %bb.1
+
+352B	  $r0 = COPY killed %1:gpr
+368B	  RET implicit killed $r0
+
+# End machine code for function sum.

@@ -1,0 +1,498 @@
+# 编译命令: clang --target=bpf  -S 7-1.c -o 7-1.s  -mllvm -debug-only=isel  >7-9.log 2>&1
+Changing optimization level for Function _Z6calleell
+	Before: -O2 ; After: -O0
+	FastISel is enabled
+
+
+
+=== _Z6calleell
+Enabling fast-isel
+Found argument copy elision candidate:   %a.addr = alloca i64, align 8
+Found argument copy elision candidate:   %b.addr = alloca i64, align 8
+Initial selection DAG: %bb.0 '_Z6calleell:entry'
+SelectionDAG has 21 nodes:
+  t0: ch = EntryToken
+  t6: i64 = Constant<0>
+      t2: i64,ch = CopyFromReg t0, Register:i64 %0
+    t8: ch = store<(store (s64) into %ir.a.addr)> t0, t2, FrameIndex:i64<0>, undef:i64
+    t4: i64,ch = CopyFromReg t0, Register:i64 %1
+  t10: ch = store<(store (s64) into %ir.b.addr)> t8, t4, FrameIndex:i64<1>, undef:i64
+  t11: i64,ch = load<(dereferenceable load (s64) from %ir.a.addr)> t10, FrameIndex:i64<0>, undef:i64
+  t12: i64,ch = load<(dereferenceable load (s64) from %ir.b.addr)> t10, FrameIndex:i64<1>, undef:i64
+    t15: ch = TokenFactor t11:1, t12:1
+    t13: i64 = add nsw t11, t12
+  t16: ch = store<(store (s64) into %ir.c)> t15, t13, FrameIndex:i64<2>, undef:i64
+    t17: i64,ch = load<(dereferenceable load (s64) from %ir.c)> t16, FrameIndex:i64<2>, undef:i64
+  t19: ch,glue = CopyToReg t16, Register:i64 $r0, t17
+  t20: ch = BPFISD::RET_FLAG t19, Register:i64 $r0, t19:1
+
+
+Optimized lowered selection DAG: %bb.0 '_Z6calleell:entry'
+SelectionDAG has 20 nodes:
+  t0: ch = EntryToken
+      t2: i64,ch = CopyFromReg t0, Register:i64 %0
+    t8: ch = store<(store (s64) into %ir.a.addr)> t0, t2, FrameIndex:i64<0>, undef:i64
+    t4: i64,ch = CopyFromReg t0, Register:i64 %1
+  t10: ch = store<(store (s64) into %ir.b.addr)> t8, t4, FrameIndex:i64<1>, undef:i64
+  t11: i64,ch = load<(dereferenceable load (s64) from %ir.a.addr)> t10, FrameIndex:i64<0>, undef:i64
+  t12: i64,ch = load<(dereferenceable load (s64) from %ir.b.addr)> t10, FrameIndex:i64<1>, undef:i64
+    t15: ch = TokenFactor t11:1, t12:1
+    t13: i64 = add nsw t11, t12
+  t16: ch = store<(store (s64) into %ir.c)> t15, t13, FrameIndex:i64<2>, undef:i64
+    t17: i64,ch = load<(dereferenceable load (s64) from %ir.c)> t16, FrameIndex:i64<2>, undef:i64
+  t19: ch,glue = CopyToReg t16, Register:i64 $r0, t17
+  t20: ch = BPFISD::RET_FLAG t19, Register:i64 $r0, t19:1
+
+
+Type-legalized selection DAG: %bb.0 '_Z6calleell:entry'
+SelectionDAG has 20 nodes:
+  t0: ch = EntryToken
+      t2: i64,ch = CopyFromReg t0, Register:i64 %0
+    t8: ch = store<(store (s64) into %ir.a.addr)> t0, t2, FrameIndex:i64<0>, undef:i64
+    t4: i64,ch = CopyFromReg t0, Register:i64 %1
+  t10: ch = store<(store (s64) into %ir.b.addr)> t8, t4, FrameIndex:i64<1>, undef:i64
+  t11: i64,ch = load<(dereferenceable load (s64) from %ir.a.addr)> t10, FrameIndex:i64<0>, undef:i64
+  t12: i64,ch = load<(dereferenceable load (s64) from %ir.b.addr)> t10, FrameIndex:i64<1>, undef:i64
+    t15: ch = TokenFactor t11:1, t12:1
+    t13: i64 = add nsw t11, t12
+  t16: ch = store<(store (s64) into %ir.c)> t15, t13, FrameIndex:i64<2>, undef:i64
+    t17: i64,ch = load<(dereferenceable load (s64) from %ir.c)> t16, FrameIndex:i64<2>, undef:i64
+  t19: ch,glue = CopyToReg t16, Register:i64 $r0, t17
+  t20: ch = BPFISD::RET_FLAG t19, Register:i64 $r0, t19:1
+
+
+Legalized selection DAG: %bb.0 '_Z6calleell:entry'
+SelectionDAG has 20 nodes:
+  t0: ch = EntryToken
+      t2: i64,ch = CopyFromReg t0, Register:i64 %0
+    t8: ch = store<(store (s64) into %ir.a.addr)> t0, t2, FrameIndex:i64<0>, undef:i64
+    t4: i64,ch = CopyFromReg t0, Register:i64 %1
+  t10: ch = store<(store (s64) into %ir.b.addr)> t8, t4, FrameIndex:i64<1>, undef:i64
+  t12: i64,ch = load<(dereferenceable load (s64) from %ir.b.addr)> t10, FrameIndex:i64<1>, undef:i64
+  t11: i64,ch = load<(dereferenceable load (s64) from %ir.a.addr)> t10, FrameIndex:i64<0>, undef:i64
+    t15: ch = TokenFactor t11:1, t12:1
+    t13: i64 = add nsw t11, t12
+  t16: ch = store<(store (s64) into %ir.c)> t15, t13, FrameIndex:i64<2>, undef:i64
+    t17: i64,ch = load<(dereferenceable load (s64) from %ir.c)> t16, FrameIndex:i64<2>, undef:i64
+  t19: ch,glue = CopyToReg t16, Register:i64 $r0, t17
+  t20: ch = BPFISD::RET_FLAG t19, Register:i64 $r0, t19:1
+
+
+Optimized legalized selection DAG: %bb.0 '_Z6calleell:entry'
+SelectionDAG has 20 nodes:
+  t0: ch = EntryToken
+      t2: i64,ch = CopyFromReg t0, Register:i64 %0
+    t8: ch = store<(store (s64) into %ir.a.addr)> t0, t2, FrameIndex:i64<0>, undef:i64
+    t4: i64,ch = CopyFromReg t0, Register:i64 %1
+  t10: ch = store<(store (s64) into %ir.b.addr)> t8, t4, FrameIndex:i64<1>, undef:i64
+  t12: i64,ch = load<(dereferenceable load (s64) from %ir.b.addr)> t10, FrameIndex:i64<1>, undef:i64
+  t11: i64,ch = load<(dereferenceable load (s64) from %ir.a.addr)> t10, FrameIndex:i64<0>, undef:i64
+    t15: ch = TokenFactor t11:1, t12:1
+    t13: i64 = add nsw t11, t12
+  t16: ch = store<(store (s64) into %ir.c)> t15, t13, FrameIndex:i64<2>, undef:i64
+    t17: i64,ch = load<(dereferenceable load (s64) from %ir.c)> t16, FrameIndex:i64<2>, undef:i64
+  t19: ch,glue = CopyToReg t16, Register:i64 $r0, t17
+  t20: ch = BPFISD::RET_FLAG t19, Register:i64 $r0, t19:1
+
+
+===== Instruction selection begins: %bb.0 'entry'
+
+ISEL: Starting selection on root node: t20: ch = BPFISD::RET_FLAG t19, Register:i64 $r0, t19:1
+ISEL: Starting pattern match
+  Morphed node: t20: ch = RET Register:i64 $r0, t19, t19:1
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t19: ch,glue = CopyToReg t16, Register:i64 $r0, t17
+
+ISEL: Starting selection on root node: t17: i64,ch = load<(dereferenceable load (s64) from %ir.c)> t16, FrameIndex:i64<2>, undef:i64
+ISEL: Starting pattern match
+  Initial Opcode index to 404
+  TypeSwitch[i64] from 411 to 415
+  Skipped scope entry (due to false predicate) at index 417, continuing at 472
+  Morphed node: t17: i64,ch = LDD<Mem:(dereferenceable load (s64) from %ir.c)> TargetFrameIndex:i64<2>, TargetConstant:i64<0>, t16
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t16: ch = store<(store (s64) into %ir.c)> t15, t13, FrameIndex:i64<2>, undef:i64
+ISEL: Starting pattern match
+  Initial Opcode index to 158
+  Skipped scope entry (due to false predicate) at index 173, continuing at 228
+  Morphed node: t16: ch = STD<Mem:(store (s64) into %ir.c)> t13, TargetFrameIndex:i64<2>, TargetConstant:i64<0>, t15
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t13: i64 = add nsw t11, t12
+ISEL: Starting pattern match
+  Initial Opcode index to 2452
+  Match failed at index 2457
+  Continuing at 2468
+  Match failed at index 2474
+  Continuing at 2511
+  Morphed node: t13: i64 = ADD_rr nsw t11, t12
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t15: ch = TokenFactor t11:1, t12:1
+
+ISEL: Starting selection on root node: t11: i64,ch = load<(dereferenceable load (s64) from %ir.a.addr)> t10, FrameIndex:i64<0>, undef:i64
+ISEL: Starting pattern match
+  Initial Opcode index to 404
+  TypeSwitch[i64] from 411 to 415
+  Skipped scope entry (due to false predicate) at index 417, continuing at 472
+  Morphed node: t11: i64,ch = LDD<Mem:(dereferenceable load (s64) from %ir.a.addr)> TargetFrameIndex:i64<0>, TargetConstant:i64<0>, t10
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t12: i64,ch = load<(dereferenceable load (s64) from %ir.b.addr)> t10, FrameIndex:i64<1>, undef:i64
+ISEL: Starting pattern match
+  Initial Opcode index to 404
+  TypeSwitch[i64] from 411 to 415
+  Skipped scope entry (due to false predicate) at index 417, continuing at 472
+  Morphed node: t12: i64,ch = LDD<Mem:(dereferenceable load (s64) from %ir.b.addr)> TargetFrameIndex:i64<1>, TargetConstant:i64<0>, t10
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t10: ch = store<(store (s64) into %ir.b.addr)> t8, t4, FrameIndex:i64<1>, undef:i64
+ISEL: Starting pattern match
+  Initial Opcode index to 158
+  Skipped scope entry (due to false predicate) at index 173, continuing at 228
+  Morphed node: t10: ch = STD<Mem:(store (s64) into %ir.b.addr)> t4, TargetFrameIndex:i64<1>, TargetConstant:i64<0>, t8
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t8: ch = store<(store (s64) into %ir.a.addr)> t0, t2, FrameIndex:i64<0>, undef:i64
+ISEL: Starting pattern match
+  Initial Opcode index to 158
+  Skipped scope entry (due to false predicate) at index 173, continuing at 228
+  Morphed node: t8: ch = STD<Mem:(store (s64) into %ir.a.addr)> t2, TargetFrameIndex:i64<0>, TargetConstant:i64<0>, t0
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t4: i64,ch = CopyFromReg t0, Register:i64 %1
+
+ISEL: Starting selection on root node: t2: i64,ch = CopyFromReg t0, Register:i64 %0
+
+ISEL: Starting selection on root node: t18: i64 = Register $r0
+
+ISEL: Starting selection on root node: t3: i64 = Register %1
+
+ISEL: Starting selection on root node: t1: i64 = Register %0
+
+ISEL: Starting selection on root node: t0: ch = EntryToken
+
+===== Instruction selection ends:
+Selected selection DAG: %bb.0 '_Z6calleell:entry'
+SelectionDAG has 20 nodes:
+  t0: ch = EntryToken
+    t4: i64,ch = CopyFromReg t0, Register:i64 %1
+      t2: i64,ch = CopyFromReg t0, Register:i64 %0
+    t8: ch = STD<Mem:(store (s64) into %ir.a.addr)> t2, TargetFrameIndex:i64<0>, TargetConstant:i64<0>, t0
+  t10: ch = STD<Mem:(store (s64) into %ir.b.addr)> t4, TargetFrameIndex:i64<1>, TargetConstant:i64<0>, t8
+  t12: i64,ch = LDD<Mem:(dereferenceable load (s64) from %ir.b.addr)> TargetFrameIndex:i64<1>, TargetConstant:i64<0>, t10
+  t11: i64,ch = LDD<Mem:(dereferenceable load (s64) from %ir.a.addr)> TargetFrameIndex:i64<0>, TargetConstant:i64<0>, t10
+    t13: i64 = ADD_rr nsw t11, t12
+    t15: ch = TokenFactor t11:1, t12:1
+  t16: ch = STD<Mem:(store (s64) into %ir.c)> t13, TargetFrameIndex:i64<2>, TargetConstant:i64<0>, t15
+    t17: i64,ch = LDD<Mem:(dereferenceable load (s64) from %ir.c)> TargetFrameIndex:i64<2>, TargetConstant:i64<0>, t16
+  t19: ch,glue = CopyToReg t16, Register:i64 $r0, t17
+  t20: ch = RET Register:i64 $r0, t19, t19:1
+
+
+Total amount of phi nodes to update: 0
+*** MachineFunction at end of ISel ***
+# Machine code for function _Z6calleell: IsSSA, TracksLiveness
+Frame Objects:
+  fi#0: size=8, align=8, at location [SP]
+  fi#1: size=8, align=8, at location [SP]
+  fi#2: size=8, align=8, at location [SP]
+Function Live Ins: $r1 in %0, $r2 in %1
+
+bb.0.entry:
+  liveins: $r1, $r2
+  %1:gpr = COPY $r2
+  %0:gpr = COPY $r1
+  STD %0:gpr, %stack.0.a.addr, 0 :: (store (s64) into %ir.a.addr)
+  STD %1:gpr, %stack.1.b.addr, 0 :: (store (s64) into %ir.b.addr)
+  %2:gpr = LDD %stack.0.a.addr, 0 :: (dereferenceable load (s64) from %ir.a.addr)
+  %3:gpr = LDD %stack.1.b.addr, 0 :: (dereferenceable load (s64) from %ir.b.addr)
+  %4:gpr = nsw ADD_rr %2:gpr(tied-def 0), killed %3:gpr
+  STD killed %4:gpr, %stack.2.c, 0 :: (store (s64) into %ir.c)
+  %5:gpr = LDD %stack.2.c, 0 :: (dereferenceable load (s64) from %ir.c)
+  $r0 = COPY %5:gpr
+  RET implicit $r0
+
+# End machine code for function _Z6calleell.
+
+
+Restoring optimization level for Function _Z6calleell
+	Before: -O0 ; After: -O2
+
+Changing optimization level for Function _Z6callerv
+	Before: -O2 ; After: -O0
+	FastISel is enabled
+
+
+
+=== _Z6callerv
+Enabling fast-isel
+Initial selection DAG: %bb.0 '_Z6callerv:entry'
+SelectionDAG has 31 nodes:
+  t3: i64 = Constant<0>
+      t0: ch = EntryToken
+    t5: ch = store<(store (s64) into %ir.d)> t0, Constant:i64<1>, FrameIndex:i64<0>, undef:i64
+  t8: ch = store<(store (s64) into %ir.e)> t5, Constant:i64<2>, FrameIndex:i64<1>, undef:i64
+  t9: i64,ch = load<(dereferenceable load (s64) from %ir.d)> t8, FrameIndex:i64<0>, undef:i64
+  t10: i64,ch = load<(dereferenceable load (s64) from %ir.e)> t8, FrameIndex:i64<1>, undef:i64
+  t11: i64 = GlobalAddress<ptr @_Z6calleell> 0
+      t12: ch = TokenFactor t9:1, t10:1
+    t14: ch,glue = callseq_start t12, TargetConstant:i64<0>, TargetConstant:i64<0>
+  t16: ch,glue = CopyToReg t14, Register:i64 $r1, t9
+  t18: ch,glue = CopyToReg t16, Register:i64 $r2, t10, t16:1
+  t20: ch,glue = BPFISD::CALL t18, TargetGlobalAddress:i64<ptr @_Z6calleell> 0, Register:i64 $r1, Register:i64 $r2, t18:1
+  t21: ch,glue = callseq_end t20, TargetConstant:i64<0>, TargetConstant:i64<0>, t20:1
+  t23: i64,ch,glue = CopyFromReg t21, Register:i64 $r0, t21:1
+    t24: i32 = truncate t23
+  t26: ch = store<(store (s32) into %ir.f)> t23:1, t24, FrameIndex:i64<2>, undef:i64
+      t27: i32,ch = load<(dereferenceable load (s32) from %ir.f)> t26, FrameIndex:i64<2>, undef:i64
+    t28: i64 = any_extend t27
+  t29: ch,glue = CopyToReg t26, Register:i64 $r0, t28
+  t30: ch = BPFISD::RET_FLAG t29, Register:i64 $r0, t29:1
+
+
+Optimized lowered selection DAG: %bb.0 '_Z6callerv:entry'
+SelectionDAG has 27 nodes:
+      t0: ch = EntryToken
+    t5: ch = store<(store (s64) into %ir.d)> t0, Constant:i64<1>, FrameIndex:i64<0>, undef:i64
+  t8: ch = store<(store (s64) into %ir.e)> t5, Constant:i64<2>, FrameIndex:i64<1>, undef:i64
+  t9: i64,ch = load<(dereferenceable load (s64) from %ir.d)> t8, FrameIndex:i64<0>, undef:i64
+  t10: i64,ch = load<(dereferenceable load (s64) from %ir.e)> t8, FrameIndex:i64<1>, undef:i64
+      t12: ch = TokenFactor t9:1, t10:1
+    t14: ch,glue = callseq_start t12, TargetConstant:i64<0>, TargetConstant:i64<0>
+  t16: ch,glue = CopyToReg t14, Register:i64 $r1, t9
+  t18: ch,glue = CopyToReg t16, Register:i64 $r2, t10, t16:1
+  t20: ch,glue = BPFISD::CALL t18, TargetGlobalAddress:i64<ptr @_Z6calleell> 0, Register:i64 $r1, Register:i64 $r2, t18:1
+  t21: ch,glue = callseq_end t20, TargetConstant:i64<0>, TargetConstant:i64<0>, t20:1
+  t23: i64,ch,glue = CopyFromReg t21, Register:i64 $r0, t21:1
+    t31: i64,ch = load<(dereferenceable load (s32) from %ir.f), anyext from i32> t32, FrameIndex:i64<2>, undef:i64
+  t29: ch,glue = CopyToReg t32, Register:i64 $r0, t31
+  t32: ch = store<(store (s32) into %ir.f), trunc to i32> t23:1, t23, FrameIndex:i64<2>, undef:i64
+  t30: ch = BPFISD::RET_FLAG t29, Register:i64 $r0, t29:1
+
+
+Type-legalized selection DAG: %bb.0 '_Z6callerv:entry'
+SelectionDAG has 27 nodes:
+      t0: ch = EntryToken
+    t5: ch = store<(store (s64) into %ir.d)> t0, Constant:i64<1>, FrameIndex:i64<0>, undef:i64
+  t8: ch = store<(store (s64) into %ir.e)> t5, Constant:i64<2>, FrameIndex:i64<1>, undef:i64
+  t9: i64,ch = load<(dereferenceable load (s64) from %ir.d)> t8, FrameIndex:i64<0>, undef:i64
+  t10: i64,ch = load<(dereferenceable load (s64) from %ir.e)> t8, FrameIndex:i64<1>, undef:i64
+      t12: ch = TokenFactor t9:1, t10:1
+    t14: ch,glue = callseq_start t12, TargetConstant:i64<0>, TargetConstant:i64<0>
+  t16: ch,glue = CopyToReg t14, Register:i64 $r1, t9
+  t18: ch,glue = CopyToReg t16, Register:i64 $r2, t10, t16:1
+  t20: ch,glue = BPFISD::CALL t18, TargetGlobalAddress:i64<ptr @_Z6calleell> 0, Register:i64 $r1, Register:i64 $r2, t18:1
+  t21: ch,glue = callseq_end t20, TargetConstant:i64<0>, TargetConstant:i64<0>, t20:1
+  t23: i64,ch,glue = CopyFromReg t21, Register:i64 $r0, t21:1
+    t31: i64,ch = load<(dereferenceable load (s32) from %ir.f), anyext from i32> t32, FrameIndex:i64<2>, undef:i64
+  t29: ch,glue = CopyToReg t32, Register:i64 $r0, t31
+  t32: ch = store<(store (s32) into %ir.f), trunc to i32> t23:1, t23, FrameIndex:i64<2>, undef:i64
+  t30: ch = BPFISD::RET_FLAG t29, Register:i64 $r0, t29:1
+
+
+Legalized selection DAG: %bb.0 '_Z6callerv:entry'
+SelectionDAG has 27 nodes:
+      t0: ch = EntryToken
+    t5: ch = store<(store (s64) into %ir.d)> t0, Constant:i64<1>, FrameIndex:i64<0>, undef:i64
+  t8: ch = store<(store (s64) into %ir.e)> t5, Constant:i64<2>, FrameIndex:i64<1>, undef:i64
+  t10: i64,ch = load<(dereferenceable load (s64) from %ir.e)> t8, FrameIndex:i64<1>, undef:i64
+  t9: i64,ch = load<(dereferenceable load (s64) from %ir.d)> t8, FrameIndex:i64<0>, undef:i64
+      t12: ch = TokenFactor t9:1, t10:1
+    t14: ch,glue = callseq_start t12, TargetConstant:i64<0>, TargetConstant:i64<0>
+  t16: ch,glue = CopyToReg t14, Register:i64 $r1, t9
+  t18: ch,glue = CopyToReg t16, Register:i64 $r2, t10, t16:1
+  t20: ch,glue = BPFISD::CALL t18, TargetGlobalAddress:i64<ptr @_Z6calleell> 0, Register:i64 $r1, Register:i64 $r2, t18:1
+  t21: ch,glue = callseq_end t20, TargetConstant:i64<0>, TargetConstant:i64<0>, t20:1
+  t23: i64,ch,glue = CopyFromReg t21, Register:i64 $r0, t21:1
+  t32: ch = store<(store (s32) into %ir.f), trunc to i32> t23:1, t23, FrameIndex:i64<2>, undef:i64
+    t31: i64,ch = load<(dereferenceable load (s32) from %ir.f), anyext from i32> t32, FrameIndex:i64<2>, undef:i64
+  t29: ch,glue = CopyToReg t32, Register:i64 $r0, t31
+  t30: ch = BPFISD::RET_FLAG t29, Register:i64 $r0, t29:1
+
+
+Optimized legalized selection DAG: %bb.0 '_Z6callerv:entry'
+SelectionDAG has 27 nodes:
+      t0: ch = EntryToken
+    t5: ch = store<(store (s64) into %ir.d)> t0, Constant:i64<1>, FrameIndex:i64<0>, undef:i64
+  t8: ch = store<(store (s64) into %ir.e)> t5, Constant:i64<2>, FrameIndex:i64<1>, undef:i64
+  t10: i64,ch = load<(dereferenceable load (s64) from %ir.e)> t8, FrameIndex:i64<1>, undef:i64
+  t9: i64,ch = load<(dereferenceable load (s64) from %ir.d)> t8, FrameIndex:i64<0>, undef:i64
+      t12: ch = TokenFactor t9:1, t10:1
+    t14: ch,glue = callseq_start t12, TargetConstant:i64<0>, TargetConstant:i64<0>
+  t16: ch,glue = CopyToReg t14, Register:i64 $r1, t9
+  t18: ch,glue = CopyToReg t16, Register:i64 $r2, t10, t16:1
+  t20: ch,glue = BPFISD::CALL t18, TargetGlobalAddress:i64<ptr @_Z6calleell> 0, Register:i64 $r1, Register:i64 $r2, t18:1
+  t21: ch,glue = callseq_end t20, TargetConstant:i64<0>, TargetConstant:i64<0>, t20:1
+  t23: i64,ch,glue = CopyFromReg t21, Register:i64 $r0, t21:1
+  t32: ch = store<(store (s32) into %ir.f), trunc to i32> t23:1, t23, FrameIndex:i64<2>, undef:i64
+    t31: i64,ch = load<(dereferenceable load (s32) from %ir.f), anyext from i32> t32, FrameIndex:i64<2>, undef:i64
+  t29: ch,glue = CopyToReg t32, Register:i64 $r0, t31
+  t30: ch = BPFISD::RET_FLAG t29, Register:i64 $r0, t29:1
+
+
+===== Instruction selection begins: %bb.0 'entry'
+
+ISEL: Starting selection on root node: t30: ch = BPFISD::RET_FLAG t29, Register:i64 $r0, t29:1
+ISEL: Starting pattern match
+  Initial Opcode index to 3467
+  Morphed node: t30: ch = RET Register:i64 $r0, t29, t29:1
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t29: ch,glue = CopyToReg t32, Register:i64 $r0, t31
+
+ISEL: Starting selection on root node: t31: i64,ch = load<(dereferenceable load (s32) from %ir.f), anyext from i32> t32, FrameIndex:i64<2>, undef:i64
+ISEL: Starting pattern match
+  Initial Opcode index to 404
+  TypeSwitch[i64] from 411 to 415
+  Skipped scope entry (due to false predicate) at index 417, continuing at 472
+  Skipped scope entry (due to false predicate) at index 473, continuing at 487
+  Skipped scope entry (due to false predicate) at index 492, continuing at 508
+  Skipped scope entry (due to false predicate) at index 509, continuing at 525
+  Morphed node: t31: i64,ch = LDW<Mem:(dereferenceable load (s32) from %ir.f)> TargetFrameIndex:i64<2>, TargetConstant:i64<0>, t32
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t32: ch = store<(store (s32) into %ir.f), trunc to i32> t23:1, t23, FrameIndex:i64<2>, undef:i64
+ISEL: Starting pattern match
+  Initial Opcode index to 158
+  Morphed node: t32: ch = STW<Mem:(store (s32) into %ir.f)> t23, TargetFrameIndex:i64<2>, TargetConstant:i64<0>, t23:1
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t23: i64,ch,glue = CopyFromReg t21, Register:i64 $r0, t21:1
+
+ISEL: Starting selection on root node: t21: ch,glue = callseq_end t20, TargetConstant:i64<0>, TargetConstant:i64<0>, t20:1
+ISEL: Starting pattern match
+  Initial Opcode index to 2649
+  Morphed node: t21: i64,ch,glue = ADJCALLSTACKUP TargetConstant:i64<0>, TargetConstant:i64<0>, t20, t20:1
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t20: ch,glue = BPFISD::CALL t18, TargetGlobalAddress:i64<ptr @_Z6calleell> 0, Register:i64 $r1, Register:i64 $r2, t18:1
+ISEL: Starting pattern match
+  Initial Opcode index to 3344
+  OpcodeSwitch from 3350 to 3354
+  Morphed node: t20: i64,ch,glue = JAL TargetGlobalAddress:i64<ptr @_Z6calleell> 0, Register:i64 $r1, Register:i64 $r2, t18, t18:1
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t18: ch,glue = CopyToReg t16, Register:i64 $r2, t10, t16:1
+
+ISEL: Starting selection on root node: t16: ch,glue = CopyToReg t14, Register:i64 $r1, t9
+
+ISEL: Starting selection on root node: t14: ch,glue = callseq_start t12, TargetConstant:i64<0>, TargetConstant:i64<0>
+ISEL: Starting pattern match
+  Initial Opcode index to 2624
+  Morphed node: t14: i64,ch,glue = ADJCALLSTACKDOWN TargetConstant:i64<0>, TargetConstant:i64<0>, t12
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t12: ch = TokenFactor t9:1, t10:1
+
+ISEL: Starting selection on root node: t9: i64,ch = load<(dereferenceable load (s64) from %ir.d)> t8, FrameIndex:i64<0>, undef:i64
+ISEL: Starting pattern match
+  Initial Opcode index to 404
+  TypeSwitch[i64] from 411 to 415
+  Skipped scope entry (due to false predicate) at index 417, continuing at 472
+  Morphed node: t9: i64,ch = LDD<Mem:(dereferenceable load (s64) from %ir.d)> TargetFrameIndex:i64<0>, TargetConstant:i64<0>, t8
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t10: i64,ch = load<(dereferenceable load (s64) from %ir.e)> t8, FrameIndex:i64<1>, undef:i64
+ISEL: Starting pattern match
+  Initial Opcode index to 404
+  TypeSwitch[i64] from 411 to 415
+  Skipped scope entry (due to false predicate) at index 417, continuing at 472
+  Morphed node: t10: i64,ch = LDD<Mem:(dereferenceable load (s64) from %ir.e)> TargetFrameIndex:i64<1>, TargetConstant:i64<0>, t8
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t8: ch = store<(store (s64) into %ir.e)> t5, Constant:i64<2>, FrameIndex:i64<1>, undef:i64
+ISEL: Starting pattern match
+  Initial Opcode index to 158
+  Skipped scope entry (due to false predicate) at index 173, continuing at 228
+  Morphed node: t8: ch = STD<Mem:(store (s64) into %ir.e)> Constant:i64<2>, TargetFrameIndex:i64<1>, TargetConstant:i64<0>, t5
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t5: ch = store<(store (s64) into %ir.d)> t0, Constant:i64<1>, FrameIndex:i64<0>, undef:i64
+ISEL: Starting pattern match
+  Initial Opcode index to 158
+  Skipped scope entry (due to false predicate) at index 173, continuing at 228
+  Morphed node: t5: ch = STD<Mem:(store (s64) into %ir.d)> Constant:i64<1>, TargetFrameIndex:i64<0>, TargetConstant:i64<0>, t0
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t22: i64 = Register $r0
+
+ISEL: Starting selection on root node: t19: i64 = TargetGlobalAddress<ptr @_Z6calleell> 0
+
+ISEL: Starting selection on root node: t17: i64 = Register $r2
+
+ISEL: Starting selection on root node: t15: i64 = Register $r1
+
+ISEL: Starting selection on root node: t13: i64 = TargetConstant<0>
+
+ISEL: Starting selection on root node: t6: i64 = Constant<2>
+ISEL: Starting pattern match
+  Initial Opcode index to 3405
+  TypeSwitch[i64] from 3406 to 3409
+  Morphed node: t6: i64 = MOV_ri TargetConstant:i64<2>
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t1: i64 = Constant<1>
+ISEL: Starting pattern match
+  Initial Opcode index to 3405
+  TypeSwitch[i64] from 3406 to 3409
+  Morphed node: t1: i64 = MOV_ri TargetConstant:i64<1>
+ISEL: Match complete!
+
+ISEL: Starting selection on root node: t0: ch = EntryToken
+
+===== Instruction selection ends:
+Selected selection DAG: %bb.0 '_Z6callerv:entry'
+SelectionDAG has 28 nodes:
+    t6: i64 = MOV_ri TargetConstant:i64<2>
+      t1: i64 = MOV_ri TargetConstant:i64<1>
+      t0: ch = EntryToken
+    t5: ch = STD<Mem:(store (s64) into %ir.d)> t1, TargetFrameIndex:i64<0>, TargetConstant:i64<0>, t0
+  t8: ch = STD<Mem:(store (s64) into %ir.e)> t6, TargetFrameIndex:i64<1>, TargetConstant:i64<0>, t5
+  t10: i64,ch = LDD<Mem:(dereferenceable load (s64) from %ir.e)> TargetFrameIndex:i64<1>, TargetConstant:i64<0>, t8
+  t9: i64,ch = LDD<Mem:(dereferenceable load (s64) from %ir.d)> TargetFrameIndex:i64<0>, TargetConstant:i64<0>, t8
+      t12: ch = TokenFactor t9:1, t10:1
+    t14: i64,ch,glue = ADJCALLSTACKDOWN TargetConstant:i64<0>, TargetConstant:i64<0>, t12
+  t16: ch,glue = CopyToReg t14:1, Register:i64 $r1, t9
+  t18: ch,glue = CopyToReg t16, Register:i64 $r2, t10, t16:1
+  t20: i64,ch,glue = JAL TargetGlobalAddress:i64<ptr @_Z6calleell> 0, Register:i64 $r1, Register:i64 $r2, t18, t18:1
+  t21: i64,ch,glue = ADJCALLSTACKUP TargetConstant:i64<0>, TargetConstant:i64<0>, t20:1, t20:2
+  t23: i64,ch,glue = CopyFromReg t21:1, Register:i64 $r0, t21:2
+  t32: ch = STW<Mem:(store (s32) into %ir.f)> t23, TargetFrameIndex:i64<2>, TargetConstant:i64<0>, t23:1
+    t31: i64,ch = LDW<Mem:(dereferenceable load (s32) from %ir.f)> TargetFrameIndex:i64<2>, TargetConstant:i64<0>, t32
+  t29: ch,glue = CopyToReg t32, Register:i64 $r0, t31
+  t30: ch = RET Register:i64 $r0, t29, t29:1
+
+
+Total amount of phi nodes to update: 0
+*** MachineFunction at end of ISel ***
+# Machine code for function _Z6callerv: IsSSA, TracksLiveness
+Frame Objects:
+  fi#0: size=8, align=8, at location [SP]
+  fi#1: size=8, align=8, at location [SP]
+  fi#2: size=4, align=4, at location [SP]
+
+bb.0.entry:
+  %0:gpr = MOV_ri 1
+  STD killed %0:gpr, %stack.0.d, 0 :: (store (s64) into %ir.d)
+  %1:gpr = MOV_ri 2
+  STD killed %1:gpr, %stack.1.e, 0 :: (store (s64) into %ir.e)
+  %2:gpr = LDD %stack.0.d, 0 :: (dereferenceable load (s64) from %ir.d)
+  %3:gpr = LDD %stack.1.e, 0 :: (dereferenceable load (s64) from %ir.e)
+  ADJCALLSTACKDOWN 0, 0, implicit-def dead $r11, implicit $r11
+  $r1 = COPY %2:gpr
+  $r2 = COPY %3:gpr
+  JAL @_Z6calleell, implicit-def $r0, implicit-def dead $r1, implicit-def dead $r2, implicit-def dead $r3, implicit-def dead $r4, implicit-def dead $r5, implicit $r11, implicit $r1, implicit $r2
+  ADJCALLSTACKUP 0, 0, implicit-def dead $r11, implicit $r11
+  %4:gpr = COPY $r0
+  STW %4:gpr, %stack.2.f, 0 :: (store (s32) into %ir.f)
+  %5:gpr = LDW %stack.2.f, 0 :: (dereferenceable load (s32) from %ir.f)
+  $r0 = COPY %5:gpr
+  RET implicit $r0
+
+# End machine code for function _Z6callerv.
+
+
+Restoring optimization level for Function _Z6callerv
+	Before: -O0 ; After: -O2

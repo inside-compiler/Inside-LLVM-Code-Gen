@@ -1,0 +1,17 @@
+bb.0.entry
+  liveins: $x10, $x11, $x12
+  SU[0]    %2:gpr = COPY $x12
+  SU[1]    %1:gpr = COPY $x11
+  SU[2]    %0:gpr = COPY $x10
+  SU[3]    %3:gpr = LW %1:gpr, 0
+  SU[4]    %4:gpr = MULW %3:gpr, %0:gpr
+  SU[5]    %5:gpr = LW %2:gpr, 0
+  SU[6]    %6:gpr = ADDW %4:gpr, %5:gpr
+  SU[7]    %7:gpr = LW %1:gpr, 4
+  SU[8]    %8:gpr = ADDW %6:gpr, %7:gpr
+  SU[9]    %9:gpr = LW %2:gpr, 4
+  SU[10]   %10:gpr = MULW %8:gpr, %9:gpr
+  SU[11]   %11:gpr = ADDW %8:gpr, %6:gpr
+  SU[12]   %12:gpr = ADDW %11:gpr, %10:gpr
+  SU[13]   SW %12:gpr, %2:gpr, 8
+          PseudoRET

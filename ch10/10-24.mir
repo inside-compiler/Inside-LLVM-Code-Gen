@@ -1,0 +1,46 @@
+# Machine code for function sum: NoPHIs, TracksLiveness, TiedOpsRewritten
+
+bb.0.entry:
+  successors: %bb.1(0x80000000); %bb.1(100.00%)
+
+  %4:gpr = MOV_ri 0
+  %7:gpr = COPY %4:gpr
+  %8:gpr = COPY %4:gpr
+  JMP %bb.1
+
+bb.1.for.cond:
+; predecessors: %bb.0, %bb.3
+  successors: %bb.2(0x7c000000), %bb.4(0x04000000); %bb.2(96.88%), %bb.4(3.12%)
+
+  %1:gpr = COPY %8:gpr
+  %0:gpr = COPY %7:gpr
+  %5:gpr = COPY %0:gpr
+  %5:gpr = SLL_ri %5:gpr(tied-def 0), 32
+  %6:gpr = COPY %5:gpr
+  %6:gpr = SRA_ri %6:gpr(tied-def 0), 32
+  JSGT_ri killed %6:gpr, 9, %bb.4
+  JMP %bb.2
+
+bb.2.for.body:
+; predecessors: %bb.1
+  successors: %bb.3(0x80000000); %bb.3(100.00%)
+
+  %2:gpr = COPY %1:gpr
+  %2:gpr = nsw ADD_rr %2:gpr(tied-def 0), %0:gpr
+  JMP %bb.3
+
+bb.3.for.inc:
+; predecessors: %bb.2
+  successors: %bb.1(0x80000000); %bb.1(100.00%)
+
+  %3:gpr = COPY %0:gpr
+  %3:gpr = nsw ADD_ri %3:gpr(tied-def 0), 1
+  %7:gpr = COPY %3:gpr
+  %8:gpr = COPY %2:gpr
+  JMP %bb.1
+
+bb.4.for.end:
+; predecessors: %bb.1
+
+  $r0 = COPY %1:gpr
+  RET implicit $r0

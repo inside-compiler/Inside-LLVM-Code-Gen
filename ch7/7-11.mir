@@ -1,0 +1,19 @@
+Frame Objects:
+  fi#0: size=8, align=8, at location [SP]
+  fi#1: size=8, align=8, at location [SP]
+  fi#2: size=8, align=8, at location [SP]
+Function Live Ins: $r1 in %0, $r2 in %1
+
+bb.0.entry:
+  liveins: $r1, $r2
+  %1:gpr = COPY $r2
+  %0:gpr = COPY $r1
+  STD %0:gpr, %stack.0.a.addr, 0 :: (store (s64) into %ir.a.addr)
+  STD %1:gpr, %stack.1.b.addr, 0 :: (store (s64) into %ir.b.addr)
+  %2:gpr = LDD %stack.0.a.addr, 0 :: (dereferenceable load (s64) from %ir.a.addr)
+  %3:gpr = LDD %stack.1.b.addr, 0 :: (dereferenceable load (s64) from %ir.b.addr)
+  %4:gpr = nsw ADD_rr %2:gpr(tied-def 0), killed %3:gpr
+  STD killed %4:gpr, %stack.2.c, 0 :: (store (s64) into %ir.c)
+  %5:gpr = LDD %stack.2.c, 0 :: (dereferenceable load (s64) from %ir.c)
+  $r0 = COPY %5:gpr
+  RET implicit $r0
